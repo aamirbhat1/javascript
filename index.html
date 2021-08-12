@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>project</title><script type="text/javascript" src="jquery.min.js"></script>
+<style type="text/css">
+ body{
+ 	font-family: helvetica, sans-serif;
+ 	font-size: 130%;	
+ }
+ input{
+ 	
+ 	width:200px;
+ 	height: 30px;
+ 	padding: 4px 5px 5px 10px;
+ 	 	border: 3px solid grey;
+ 	border-radius: 5px;
+ 	margin-bottom: 10px;
+ 	font-size: 18px;
+
+ }
+ label{
+ 	position: relative;
+ 	top:15px;
+ 	float: left;
+ 	width:200px;
+ 	margin:0px 20px 5px 5px;
+ 	
+
+ }
+ #wrapper{
+ 	width: 600px;
+ 	margin: 0 auto;
+
+ }
+ #submit{
+ 	position: relative;
+ 	left: 350px;
+ 	top: 30px;
+ 	height: 50px;
+ 	border: 5px solid green;
+ 	width: 100px;
+
+ }
+ #p1{
+ 	color: red;
+ 	font-size: 22px;
+ }
+ #s{
+ 	color: green;
+ 	font-size: 22px;
+ 	margin-bottom: 20px;
+ 	display: none;
+ }
+ </style>
+</head>
+<body>
+	 <div id="wrapper">
+	 	<div id="p1"></div>
+	 	<div id="s">congrats you are logged in</div>
+		<label for="UserName">UserName:</label>
+		<input type="text" name="text" id="email" placeholder="e.g example@gmail.com">	 	
+			<br>
+		<label for="Telephone">Telephone</label>
+		<input type="text" name="text" id="Telephone" placeholder="e.g 012345678">	 	
+
+			<br>
+		<label for="password">password</label>
+		<input type="password" id="password" name="text">	 <br>
+
+		<label for="confirm">Confirm password</label>
+		<input type="password" id="confirmpassword" name="text" ><br>
+
+
+		<input type="submit" name="text" value="submit" id="submit">	 	
+	 	
+	 </div>
+<script type="text/javascript">
+	function isEmail(email){
+		var regex= /^([a-zA-Z)-9])+@(([a-zA-Z0-9])*\.)+([a-zA-Z0-9]{2,4})+$/;
+		return regex.test(email);
+	}
+	
+
+	$("#submit").click(function () {
+		var correct="";
+		var missing="";
+		//correct=;
+		if($("#email").val()==""){
+			missing+="please enter your email";
+
+		}
+		if($("#Telephone").val()==""){
+			missing+="<br>please enter your phone number";
+
+		}
+		if($("#password").val()==""){
+			missing+="<br>enter password";
+
+		}
+		if($("#confirmpassword").val()==""){
+			missing+="<br>please enter your confirmpassword";
+
+		}
+		if(missing!=""){
+		$("#p1").html(missing);}
+
+	if(isEmail($("#email").val())==false){
+			correct+="<br>you entered invalid email try again";
+						}						
+								
+		if ($.isNumeric($("#Telephone").val())==false) {
+			correct+="<br>you entered invalid phone number try again";
+								}				
+		if($("#password").val()!=$("#confirmpassword").val())
+				{
+					correct+="<br>password doesn't match";
+
+				
+				}
+			if (correct!="") {
+				$("#p1").html(correct);}
+				
+
+		else{
+
+			$("#s").show();
+			$("#p1").hide();	
+			}
+			});
+
+</script>
+</body>
+</html>
