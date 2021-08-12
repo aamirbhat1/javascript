@@ -1,0 +1,36 @@
+<html>
+<head><title>jquery</title>
+<script type="text/javascript" src="jquery.min.js"></script>
+<style type="text/css">
+#p{
+font-size:20px;
+color:red;
+}
+#p1{
+display:none;
+}
+#but{
+width:90px;
+border:5px solid green;
+}
+</style>
+</head>
+<body>
+<p id="p">hello this paragraph will fadeOut if you clicked on it</p>
+<p id="p1">hi what is your name </p>
+<button id ="but">toggle</button>
+<div id="circle"></div>
+<div class="square"></div>
+<div class="square"></div>
+
+<script type="text/javascript">
+$("#but").click(function(){
+$("#p").fadeOut("slow");
+if($("#p").css("display")=="none"){
+$("#p").fadeIn();
+}
+});
+
+</script>
+</body>
+</html>

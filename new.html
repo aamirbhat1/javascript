@@ -1,0 +1,51 @@
+<html>
+<head><title>jquery</title>
+<script type="text/javascript" src="jquery.min.js">
+	
+</script>
+<style type="text/css">
+#circle{
+background-color:red;
+width:100px;
+height:100px;
+border-radius:50%;
+margin:10px;
+}
+
+</style>
+</head>
+<body>
+<p id="p">hello this paragraph will fadeOut if you clicked on it</p>
+<p id="p1">hi what is your name </p>
+
+<div id="circle"></div>
+<div class="square"></div>
+<div class="square"></div>
+
+<script type="text/javascript">
+
+function s(){
+ 
+$("#p").click(function(){
+
+$(this).animate({
+width:"300px",
+height:"300px",
+fontSize:"30px",
+marginLeft:"100px",
+marginTop:"100px",
+},3000,function(){
+$(this).css("background-color","red");
+}
+);
+});
+}
+
+
+
+
+s();
+
+</script>
+</body>
+</html>
